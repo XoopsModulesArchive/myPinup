@@ -1,0 +1,21 @@
+<script language=JavaScript>
+function ejs_img_fx(img){	
+	if(img && img.filters && img.filters[0]){
+		img.filters[0].apply();
+		img.filters[0].play();
+	}
+}
+</script>
+
+<center>
+
+<{if $block.link <>"self"}>
+	<a href="<{$block.link}>">
+<{else}>
+	<a href="<{$block.content}>" target="wclose" onclick="window.open('popup.htm', 'wclose', 'width=<{$block.width}>, height=<{$block.height}>, toolbar=no, status=no, left=50, top=50')">
+<{/if}>
+	<img src="<{$block.content}>" alt="<{$block.texte}> <{$block.date}>" width="165" style="filter:progid:DXImageTransform.Microsoft.Pixelate(MaxSquare=100,Duration=1)" onLoad="ejs_img_fx(this)" onMouseOver="ejs_img_fx(this)">
+	</a>
+<br>
+	<{$block.texte}><{$block.date}>
+</center>
